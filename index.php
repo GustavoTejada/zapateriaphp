@@ -1,27 +1,7 @@
-<?php	
-
-//INSERT INTO `shoes` (`id`, `name`, `description`, `price`) VALUES ('1', 'DC', 'son zapatillas', '900');
-
-function getShoes(){
-	$shoes=[];
-
-	$connection = mysqli_connect("localhost","GustaMan","1234","zapateria");
-
-	$result = mysqli_query($connection, "SELECT * FROM shoes");
-	while ($shoe = $result->fetch_array()){
-		$shoes[] = $shoe;
-	}
-
-
-	return $shoes;
-}
-
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Prueba PHP</title>
+	<title>Welcome</title>
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
 
@@ -29,30 +9,28 @@ function getShoes(){
 	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap-theme.min.css">
 </head>
 <body>
-	<div class="container">
-		<table class="table table-striped">
-			<thead>
-				<tr>
-					<th>N° Producto</th>
-					<th>Nombre</th>
-					<th>Descripción</th>
-					<th>Precio</th>
-				</tr>
-			</thead>
-			<tbody .table-striped>
-				<?php $shoes = getShoes();?>
-				<?php foreach($shoes as $shoe){ ?>
-					<tr>
-						<tr>
-							<td><?php echo $shoe["id"]?></td>
-							<td><?php echo $shoe["name"]?></td>
-							<td><?php echo $shoe["description"]?></td>
-							<td><?php echo $shoe["price"]?></td>
-						</tr>
-					</tr>
-				<?php }?>
-			</tbody>
-		</table>
-	</div>
+
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="http://localhost/pruebaphp">Zapateria</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="http://localhost/pruebaphp/zapatos">Zapatos</a></li>
+				</ul>
+			</div><!-- /.navbar-collapse -->
+		</div><!-- /.container-fluid -->
+	</nav>
+
 </body>
 </html>
